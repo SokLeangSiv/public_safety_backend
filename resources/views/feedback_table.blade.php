@@ -9,7 +9,7 @@
           </div>
           <div class="col-sm-6">
             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-     
+
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Address</th>
+            <th>Description</th>
             <th>Phone</th>
             <th>Actions</th>
           </tr>
@@ -184,4 +184,3 @@
     </div>
   </div>
 @endsection
-

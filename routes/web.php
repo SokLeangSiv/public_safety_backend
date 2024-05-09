@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::get('/Feedback', function () {
-    return view('table.Feedback_table');
+Route::get('/feedback', [FeedbackController::class, 'Feedbackpage']);
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/report', function () {
+    return view('crime_report');
 });
 require __DIR__.'/auth.php';
