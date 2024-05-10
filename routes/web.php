@@ -37,4 +37,7 @@ Route::get('/user', function () {
 Route::get('/report', function () {
     return view('crime_report');
 });
+Route::get('/Feedback_Form', function () {
+    return view('Feedback_Form');
+});
 require __DIR__.'/auth.php';

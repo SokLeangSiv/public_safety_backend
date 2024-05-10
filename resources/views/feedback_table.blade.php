@@ -1,6 +1,5 @@
 
 @extends('dashboard.master')
-
 @section('dashboard.content')
 <div class="container">
     <h1 class="text-left my-4">User Feedback</h1>
