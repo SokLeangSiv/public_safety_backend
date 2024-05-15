@@ -1,7 +1,7 @@
 @extends('dashboard.master')
 @section('dashboard.content')
     <div
-        class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+        class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-slate-800">
         <div class="relative z-20 h-35 md:h-65">
             <img src="src/images/cover/cover-01.png" alt="profile cover"
                 class="h-full w-full rounded-tl-sm rounded-tr-sm object-cover object-center" />
@@ -45,12 +45,12 @@
                 </div>
             </div>
             <div class="mt-4">
-                <h3 class="mb-1.5 text-2xl font-medium text-black dark:text-white">
+                <h3 class="mb-1.5 text-2xl font-medium text-black dark:text-black">
                     Danish Heilium
                 </h3>
                 <p class="font-medium">Ui/Ux Designer</p>
                 <div class="mx-auto max-w-180">
-                    <h4 class="font-medium text-black dark:text-white">
+                    <h4 class="font-medium text-black dark:text-black">
                         About Me
                     </h4>
                     <p class="mt-4.5 text-sm font-normal">

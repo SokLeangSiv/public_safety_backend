@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="text-left my-4">User Feedback</h1>
     <div class="table-responsive">
-        <table class="table table-bordered table-hover text-center">
+        <table class="table table-bordered  text-center">
             <thead class="table-dark">
                 <tr>
                     <th scope="col" class="email">Email</th>
@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="dark:text-white ">
                     <td>example@example.com</td>
                     <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo euismod eros, vel vulputate magna venenatis ut. Vivamus vehicula, elit id volutpat euismod, turpis nisi consectetur mi, at egestas est libero sed est. Vivamus pretium arcu ut lectus congue vehicula. Fusce accumsan bibendum elit vel consequat. Nullam non purus ut nisi ullamcorper varius ac quis elit. Nulla auctor ultricies ipsum non tristique.</td>
                     <td>

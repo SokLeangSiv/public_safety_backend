@@ -122,7 +122,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <!-- ===== Content Area Start ===== -->
                 <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                     <!-- ===== Header Start ===== -->
-                    <header class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1">
+                    <header class="sticky top-0 z-999 flex w-full drop-shadow-1">
                         @include('dashboard.header')
                     </header>
 
