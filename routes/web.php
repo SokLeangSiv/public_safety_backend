@@ -14,9 +14,12 @@ use App\Http\Controllers\FeedbackController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,4 +43,6 @@ Route::get('/report', function () {
 Route::get('/Feedback_Form', function () {
     return view('Feedback_Form');
 });
+
+Route::get('/logout', [FeedbackController::class, 'destroy'])->name('logout.user');
 require __DIR__.'/auth.php';

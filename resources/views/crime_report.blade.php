@@ -25,7 +25,7 @@
                     <td>Kompong Cham</td>
                     <td>23/07/19</td>
                     <td>
-                        <div class="d-grid gap-2 mt-2 justify-content-center text-end">
+                        <div class="d-flex gap-2 mt-2 justify-content-center text-end">
                             <button class="btn btn-success col px-4" type="button">View</button>
                             <button class="btn btn-warning col px-4" type="button">Edit</button>
                             <button class="btn btn-danger col px-4" type="button">Delete</button>
@@ -40,7 +40,7 @@
                     <td>Phnom Penh</td>
                     <td>23/07/16</td>
                     <td>
-                        <div class="d-grid gap-2 mt-2 justify-content-center text-end">
+                        <div class="d-flex gap-2 mt-2 justify-content-center text-end">
                             <button class="btn btn-success col px-4" type="button">View</button>
                             <button class="btn btn-warning col px-4" type="button">Edit</button>
                             <button class="btn btn-danger col px-4" type="button">Delete</button>

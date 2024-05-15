@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
             <!-- Card 1 -->
-            <div class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+            <div class="rounded-sm border border-stroke bg-white  px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                 <div class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
                     <svg class="fill-primary dark:fill-white" width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <!-- Your SVG path for the first card icon -->
