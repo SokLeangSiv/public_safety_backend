@@ -63,5 +63,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "your-repository-name": {
+            "type": "git",
+            "url": "https://github.com/SokLeangSiv/public_safety_backend.git"
+        }
+    }
 }
