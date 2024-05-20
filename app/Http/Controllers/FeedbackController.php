@@ -9,6 +9,7 @@ class FeedbackController extends Controller
 {
     public function Feedbackpage()
     {
+        
         return view('feedback_table');
     }
 
