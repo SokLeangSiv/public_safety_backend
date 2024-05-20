@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class FeedbackController extends Controller
 {
     public function Feedbackpage()
-    {
-        $feedbacks = Feedback::get()->latest();
-        dd($feedbacks);
+    {   
+        //want to get all feedbacks from the database get and latest
+        $feedbacks = Feedback::latest()->get();     
+      
         return view('feedback_table', compact('feedbacks'));
     }
 

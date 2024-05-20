@@ -31,18 +31,33 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/feedback', [FeedbackController::class, 'Feedbackpage']);
+Route::middleware('auth')->group(function(){
+    Route::get('/feedback', [FeedbackController::class, 'Feedbackpage']);
+    Route::get('/user', function () {
+        return view('user');
+    });
+    Route::get('/report', function () {
+        return view('crime_report');
+    });
+    Route::get('/Feedback_Form', function () {
+        return view('Feedback_Form');
+    });
+    Route::get('/logout', [FeedbackController::class, 'destroy'])->name('logout.user');
+    require __DIR__.'/auth.php';
+})
 
-Route::get('/user', function () {
-    return view('user');
-});
+// Route::get('/feedback', [FeedbackController::class, 'Feedbackpage']);
 
-Route::get('/report', function () {
-    return view('crime_report');
-});
-Route::get('/Feedback_Form', function () {
-    return view('Feedback_Form');
-});
+// Route::get('/user', function () {
+//     return view('user');
+// });
 
-Route::get('/logout', [FeedbackController::class, 'destroy'])->name('logout.user');
+// Route::get('/report', function () {
+//     return view('crime_report');
+// });
+// Route::get('/Feedback_Form', function () {
+//     return view('Feedback_Form');
+// });
+
+// Route::get('/logout', [FeedbackController::class, 'destroy'])->name('logout.user');
 require __DIR__.'/auth.php';
