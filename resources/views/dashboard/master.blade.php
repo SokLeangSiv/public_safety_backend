@@ -93,6 +93,24 @@
     </script>
 </head>
 
+
+<style>
+    .mapdiv {
+        fill: red;
+        stroke: yellow;
+
+    }
+
+    path{
+        transition: 0.5s;
+    }
+
+    .mapdiv path:hover {
+        fill: rgb(86, 86, 89);
+        stroke: green
+    }
+</style>
+
 <body x-data="{ page: 'analytics', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" :class="{ 'dark text-bodydark bg-boxdark-2': darkMode === true }">
     <!-- ===== Preloader Start ===== -->

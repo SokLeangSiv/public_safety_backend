@@ -42,9 +42,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/Feedback_Form', function () {
         return view('Feedback_Form');
     });
+    Route::get('/map', [FeedbackController::class, 'showMap'])->name('map');
+
     Route::get('/logout', [FeedbackController::class, 'destroy'])->name('logout.user');
     require __DIR__.'/auth.php';
-})
+
+});
 
 // Route::get('/feedback', [FeedbackController::class, 'Feedbackpage']);
 

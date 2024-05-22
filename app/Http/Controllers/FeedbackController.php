@@ -27,4 +27,9 @@ class FeedbackController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function showMap()
+    {
+        return view('map');
+    }
 }
