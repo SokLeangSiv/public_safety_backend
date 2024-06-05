@@ -1,5 +1,5 @@
-@extends('dashboard.master')
-@section('dashboard.content')
+@extends('master')
+@section('content')
     <div class="formbold-main-wrapper">
         <div class="w-full">
             <form action="https://formbold.com/s/FORM_ID" method="POST" class="formbold-chatbox-form">

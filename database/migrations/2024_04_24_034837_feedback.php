@@ -20,7 +20,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            
+
             $table->string('feedback_description');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
@@ -32,7 +32,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
+
         Schema::dropIfExists('feedback');
     }
 };
+

@@ -1,5 +1,5 @@
-@extends('dashboard.master')
-@section('dashboard.content')
+@extends('master')
+@section('content')
     <div
         class="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-slate-800">
         <div class="relative z-20 h-35 md:h-65">

@@ -1,0 +1,13 @@
+.mapdiv{
+    fill: red;
+    stroke: yellow;
+}
+
+a{
+    transition: fill 0.5s, stroke 0.5s;
+}
+
+.mapdiv a:hover{
+    fill: gray;
+    stroke: blue;
+}
