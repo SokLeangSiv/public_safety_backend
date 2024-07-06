@@ -10,14 +10,43 @@ use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
+
+    public function showForm()
+    {
+
+        return view('feedback.feedback_form');
+    }
+
+    public function saveFeedback(Request $request)
+    {
+        $request->validate([
+
+            'feedback_by' => 'required|max:255',
+
+            'feedback_description' => 'required',
+
+        ]);
+
+        Feedback::create([
+
+            'feedback_by' => $request->feedback_by,
+
+            'feedback_description' => $request->feedback_description,
+
+
+        ]);
+
+        return redirect()->route('feedback')->with('success', 'Feedback created successfully!');
+    }
+
     public function Feedback_table()
     {
-        $feedbacks = DB::table('feedback')
-        ->join('users', 'feedback.user_id', '=', 'users.id')
-        ->select('feedback.*', 'users.name', 'users.email')
-        ->get();
-        return view('/feedback_table', compact('feedbacks'));
+        //paginate feedback by 10;
+        $feedbacks = Feedback::paginate(10);
+        return view('feedback_table', compact('feedbacks'));
     }
+
+
 
     public function viewFeedback($id)
     {
@@ -34,36 +63,51 @@ class FeedbackController extends Controller
 
     public function updateFeedback(Request $request, $id)
     {
-        $feedback = Feedback::find($id);
+
+        $request->validate([
+            'feedback_by' => 'required|max:255',
+            'feedback_description' => 'required',
+        ]);
+
+        $feedback = Feedback::findOrFail($id);
+
         $feedback->feedback_by = $request->input('feedback_by');
-        $feedback->user_id = $request->input('user_id');
+
         $feedback->feedback_description = $request->input('feedback_description');
+
         $feedback->save();
-        return redirect()->route('feedback')->with('success', 'Report updated successfully.');
+
+        return redirect()->route('feedback')->with('success', 'Feedback updated successfully.');
     }
+
+
 
     public function deleteFeedback($id)
     {
         $feedback = Feedback::find($id);
+
         $feedback->delete();
+
         return redirect()->route('feedback');
     }
 
 
     public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
-
+        Auth::logout();
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-
-        return redirect()->route('login');
+        return redirect('/login');
     }
 
-    public function showMap()
+    public function searchFeedback(Request $request)
     {
-        return view('map');
+        $search = $request->search;
+
+        $feedbacks = Feedback::where('feedback_by', 'like', '%' . $search . '%')
+            ->paginate(10);
+            return view('feedback_table', compact('feedbacks','search'));
     }
+
 }

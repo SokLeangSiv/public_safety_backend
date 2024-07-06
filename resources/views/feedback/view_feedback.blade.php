@@ -1,28 +1,26 @@
-@extends('master')
+ @extends('master')
 @section('content')
-<div class="container">
+<div class="mx-10 md:mx-10 lg:mx-24 xl:mx-48 max-w-screen-xl p-4 md:p-6 lg:p-10">
+<div class="container rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     <h1 class="title text-black dark:text-white">Feedback Details</h1>
     <table id="feedback-details">
         <tbody>
             <tr>
-                <th class="text-black dark:text-white">Feedback By</th>
-                <td class="text-black dark:text-white">{{ $feedbacks->feedback_by }}</td>
+                <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">Feedback By</th>
+                <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">{{ $feedbacks->feedback_by }}</td>
             </tr>
 
             <tr>
-                <th class="text-black dark:text-white">Description</th>
-                <td class="text-black dark:text-white">{{ $feedbacks->feedback_description }}</td>
-            </tr>
-            <tr>
-                <th class="text-black dark:text-white">Created At</th>
-                <td class="text-black dark:text-white">{{ $feedbacks->created_at }}</td>
-            </tr>
-            <tr>
-                <th class="text-black dark:text-white">Updated At</th>
-                <td class="text-black dark:text-white">{{ $feedbacks->updated_at }}</td>
+                <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">Description</th>
+                <td class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                    <textarea id="div_editor1" rows="4"
+                        class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        required disabled>{{ $feedbacks->feedback_description }}</textarea>
+                </td>
             </tr>
         </tbody>
     </table>
+</div>
 </div>
 @endsection
 <style>

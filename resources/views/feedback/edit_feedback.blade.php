@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
-<div class="container">
+<div class="mx-10 md:mx-10 lg:mx-24 xl:mx-64 max-w-screen-xl p-4 md:p-6 lg:p-10">
+<div class="container rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     <h1 class="title text-black dark:text-white">Edit Feedback</h1>
     <form action="{{ route('update.feedback', ['id' => $feedback->id]) }}" method="post">
         @csrf
@@ -8,28 +9,25 @@
         <table id="feedback-details">
             <tbody>
                 <tr>
-                    <th class="text-black dark:text-white">ID</th>
-                    <td class="text-black dark:text-white">{{ $feedback->id }}</td>
-                </tr>
-                <tr>
-                    <th class="text-black dark:text-white">Feedback By</th>
-                    <td class="text-black dark:text-white">
-                        <input type="text" name="feedback_by" value="{{ $feedback->feedback_by }}">
+                    <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">Feedback By</th>
+                    <td class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                        <input type="text" class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" name="feedback_by" value="{{ $feedback->feedback_by }}">
                     </td>
                 </tr>
                 <tr>
-                    <th class="text-black dark:text-white">Feedback Description</th>
-                    <td class="text-black">
-                        <textarea name="feedback_description" rows="4">{{ $feedback->feedback_description }}</textarea>
+                    <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">Feedback Description</th>
+                    <td class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                        <textarea id="div_editor1" name="feedback_description" class="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary" rows="4">{{ $feedback->feedback_description }}</textarea>
                     </td>
                 </tr>
-                <!-- Add more fields as needed -->
             </tbody>
         </table>
         <div class="button-container">
-            <button type="submit" class="update-button">Update Feedback</button>
+            <button type="submit" class="w-2xl cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" >Update Feedback</button>
+
         </div>
     </form>
+</div>
 </div>
 @endsection
 <style>
@@ -125,7 +123,7 @@
     body.dark-mode input[type="file"],
     body.dark-mode textarea {
         background-color: #666;
-        color: #e0e0e0;
+
         border: 1px solid #888;
     }
 

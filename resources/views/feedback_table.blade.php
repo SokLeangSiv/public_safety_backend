@@ -2,15 +2,20 @@
 @section('content')
     <div class="mx-10 max-w-screen-2xl p-4 md:p-6 2xl:p-10">
 
-
-
         <div
             class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6  shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
             <div class="max-w-full overflow-x-auto">
+                <form action="{{route('feedback.search')}}" method="GET">
+                    <label  for="search" class="mr-2 text-black dark:text-white">Search:</label>
+                    <input type="text" id="search" name="search"
+                        class="rounded text-black border border-gray-300 p-2" placeholder="Search by name"
+                        value="{{ isset($search) ? $search : '' }}">
+                    <button type="submit" id="searchButton"
+                        class="ml-2 rounded-full border border-primary px-4 py-2 text-primary hover:bg-opacity-90">Search</button>
+                </form>
                 <table class="w-full table-auto">
-
                     {{-- add button --}}
-                    <a href="#"
+                    <a href="{{route('feedback.form')}}" style="margin-top:30px;"
                         class="inline-flex items-center justify-center mb-4 gap-2.5 rounded-full border border-primary px-6 py-2 text-center font-medium text-primary hover:bg-opacity-90 lg:px-8 xl:px-10">
                         <span>
                             <i class="fa-solid fa-circle-plus"></i>
@@ -24,7 +29,7 @@
                     <thead>
                         <tr class="bg-gray-2 text-left dark:bg-meta-4 ">
                             <th class="min-w-[220px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
-                                Email
+                                Name
                             </th>
                             <th class="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
                                 Description
@@ -41,10 +46,9 @@
                             <tr>
                                 <td class="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                                     <h5 class="font-medium text-black dark:text-white"> {{ $feedback->feedback_by }} </h5>
-
                                 </td>
-                                <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
-                                    <p class="text-black dark:text-white">{!! $feedback->feedback_description !!}</p>
+                                <td class="border-b  border-[#eee] px-4 py-5 dark:border-strokedark">
+                                    <h5 class="font-medium text-black dark:text-white" >{{ \Illuminate\Support\Str::limit(strip_tags($feedback->feedback_description), 20, '...') }}</h5>
                                 </td>
 
                                 <td class="border-b border-[#eee]  py-5 dark:border-strokedark">
@@ -70,7 +74,7 @@
 
                                         </button>
                                         <button class="hover:text-primary">
-                                            <a href="{{route('feedback.delete', $feedback->id)}}">
+                                            <a href="{{route('feedback.delete', $feedback->id)}}" onclick="confirmation(event)">
                                             <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -92,10 +96,12 @@
                                 </td>
                             </tr>
                         @endforeach
-
-
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $feedbacks->links() }}
+                </div>
+            </div>
             </div>
         </div>
 

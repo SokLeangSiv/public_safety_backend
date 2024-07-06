@@ -1,99 +1,204 @@
 @extends('master')
 @section('content')
-    <div class="container">
-        <h1 class="title text-black dark:text-white">Incident Report</h1>
-        <form action="{{ route('report.update', ['id' => $reports->id]) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+    <div class="mx-10 md:mx-10 lg:mx-24 xl:mx-48 max-w-screen-xl p-4 md:p-6 lg:p-10">
+        <div
+            class="container rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+            <h1 class="title text-black dark:text-white">Incident Report</h1>
             <table id="incident-reports">
                 <tbody>
                     <tr>
-                        <th class="text-black dark:text-white">ID</th>
-                        <td class="text-black dark:text-white">{{ $reports->id }}</td>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Report By</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->report_by }}</td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Report By</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="report_by" value="{{ $reports->report_by }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Report Date</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->report_date }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Incident Type</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->incident_type }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Report Date</th>
-                        <td class="text-black dark:text-white">
-                            <input type="date" name="report_date" value="{{ $reports->report_date }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Date of Incident</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->date_incident }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Incident Type</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="incident_type" value="{{ $reports->incident_type }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Province</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->province }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Date of Incident</th>
-                        <td class="text-black dark:text-white">
-                            <input type="date" name="date_incident" value="{{ $reports->date_incident }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Incident Location</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->incident_location }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Province</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="province" value="{{ $reports->province }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Incident Description</th>
+                        <td class="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            <div class="w-full rounded-lg bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+                                {!! $reports->incident_description !!}
+                            </div>
+
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Incident Location</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="incident_location" value="{{ $reports->incident_location }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Latitude</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->lat }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Incident Description</th>
-                        <td class="text-black dark:text-white">
-                            <textarea class="text-black" name="incident_description" rows="4" readonly>{{ $reports->incident_description }}</textarea>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Longitude</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->long }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Latitude</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="lat" value="{{ $reports->lat }}" readonly>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Report Status</th>
+                        <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            {{ $reports->report_status }}
                         </td>
                     </tr>
                     <tr>
-                        <th class="text-black dark:text-white">Longitude</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="long" value="{{ $reports->long }}" readonly>
-                        </td>
+                        <th class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                            Report Image</th>
+                            <td class="text-black dark:text-white border-b border-stroke px-6.5 py-4 dark:border-strokedark">
+                                @if ($reports->report_image)
+                                    @php
+                                        $images = explode(',', $reports->report_image);
+                                    @endphp
+                                    <div>
+                                        @foreach ($images as $image)
+                                            <a href="{{ asset('public/report_image/' . $image) }}" target="_blank" id="fullscreen_image">
+                                                <img src="{{ asset('public/report_image/' . $image) }}" alt="Report Image" style="max-width: 200px; max-height: 200px; margin: 5px;">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </td>
+
+
                     </tr>
+
                     <tr>
-                        <th class="text-black dark:text-white">Report Status</th>
-                        <td class="text-black dark:text-white">
-                            <input type="text" name="report_status" value="{{ $reports->report_status }}" readonly>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-black dark:text-white">Report Image</th>
-                        <td class="text-black dark:text-white">
-                            @if ($reports->report_image)
-                                <br><img src="{{ asset($reports->report_image) }}" alt="Report Image" style="max-width: 100px;">
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-black dark:text-white">Report Video</th>
-                        <td class="text-black dark:text-white">
-                            @if ($reports->report_video)
-                                <br><video width="320" height="240" controls>
-                                    <source src="{{ asset($reports->report_video) }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            @endif
-                        </td>
+                        <div id="map" style="height: 500px;" class="mb-12"></div>
+                        <input type="hidden" id="latitude" value="{{ $location->lat }}">
+                        <input type="hidden" id="longitude" value="{{ $location->long }}">
+
                     </tr>
                 </tbody>
             </table>
-        </form>
+        </div>
     </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmVha3NlbiIsImEiOiJjbHh2bjN5aDEybDljMmlweDM1eThwdGlmIn0.ufFA_P5GOQFOpVzlQlsVJw';
+
+        // Get the latitude and longitude from the hidden fields
+        const latitude = parseFloat(document.getElementById('latitude').value);
+        const longitude = parseFloat(document.getElementById('longitude').value);
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11', // Use streets style for a more visually appealing map
+            center: [longitude, latitude],
+            zoom: 14,
+            pitch: 45,
+            bearing: -17.6
+        });
+
+        map.dragRotate.enable();
+        map.touchZoomRotate.enableRotation();
+
+        // Add navigation control (zoom in/out, rotate)
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Add fullscreen control
+        map.addControl(new mapboxgl.FullscreenControl());
+
+        // Add search functionality
+        const geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl,
+            marker: false
+        });
+        map.addControl(geocoder, 'top-left'); // Add geocoder to the top-left corner
+
+        // Add the marker at the specified coordinates
+        const marker = new mapboxgl.Marker()
+            .setLngLat([longitude, latitude])
+            .addTo(map);
+
+        // Enable 3D buildings
+        map.on('style.load', () => {
+            map.addSource('mapbox-dem', {
+                'type': 'raster-dem',
+                'url': 'mapbox://mapbox.terrain-rgb',
+                'tileSize': 512,
+                'maxzoom': 14
+            });
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+            map.addLayer({
+                'id': 'sky',
+                'type': 'sky',
+                'paint': {
+                    'sky-type': 'atmosphere',
+                    'sky-atmosphere-sun': [0.0, 0.0],
+                    'sky-atmosphere-sun-intensity': 15
+                }
+            });
+
+            map.addLayer({
+                'id': '3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': '#aaa',
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'height']
+                    ],
+                    'fill-extrusion-base': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'min_height']
+                    ],
+                    'fill-extrusion-opacity': 0.6
+                }
+            });
+        });
+    </script>
 @endsection
 
 <style>
@@ -129,41 +234,8 @@
         font-weight: bold;
     }
 
-    input[type="text"],
-    input[type="date"],
-    input[type="file"],
-    textarea {
-        width: 100%;
-        max-width: 400px;
-        padding: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+    .text-black {
         color: #333;
-        font-size: 1.1em;
-    }
-
-    textarea {
-        resize: vertical;
-    }
-
-    .button-container {
-        text-align: center;
-    }
-
-    .update-button {
-        background-color: #009688;
-        padding: 12px 24px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        color: white;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .update-button:hover {
-        background-color: #007a63;
     }
 
     body.dark-mode .container {
@@ -184,21 +256,7 @@
         background-color: #555;
     }
 
-    body.dark-mode input[type="text"],
-    body.dark-mode input[type="date"],
-    body.dark-mode input[type="file"],
-    body.dark-mode textarea {
-        background-color: #666;
+    body.dark-mode .text-black {
         color: #e0e0e0;
-        border: 1px solid #888;
-    }
-
-    body.dark-mode .update-button {
-        background-color: #555;
-        color: #e0e0e0;
-    }
-
-    body.dark-mode .update-button:hover {
-        background-color: #444;
     }
 </style>
