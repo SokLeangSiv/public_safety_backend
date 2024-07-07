@@ -3,7 +3,7 @@
     @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
     <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <a href="index.html">
+        <a href="dashboard">
             <img src="{{asset('img/logo.png')}}" alt="h" width="150px" height="150px" />
         </a>
 
@@ -70,6 +70,16 @@
                         </a>
                     </li>
                     <!-- Menu Item Feedback -->
+
+                    <!-- Menu Item Contact Us -->
+                    <li>
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+                            href="{{ route('contact_us_table') }}">
+                            <i class="fa-regular fa-address-book" style="font-size: 20px"></i>
+                            <p class="px-2">Contact</p>
+                        </a>
+                    </li>
+                    <!-- Menu Item Contact Us -->
 
                     <!-- Menu Item map -->
                     <li>

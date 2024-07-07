@@ -1,3 +1,10 @@
+@php
+
+    $profileImage = auth()->user()->image;
+
+@endphp
+
+
 <header
 class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
 <div class="flex flex-grow items-center justify-end px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -33,7 +40,7 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
             <img src="" alt="h" />
         </a>
     </div>
-    
+
 
     <div class="flex items-center gap-3 2xsm:gap-7">
         <ul class="flex items-center gap-2 2xsm:gap-4">
@@ -69,9 +76,9 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
                 <!-- Dark Mode Toggler -->
             </li>
 
-          
 
-            
+
+
         </ul>
 
         <!-- User Area -->
@@ -79,13 +86,12 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
             <a class="flex items-center gap-4" href="#"
                 @click.prevent="dropdownOpen = ! dropdownOpen">
                 <span class="hidden text-right lg:block">
-                    <span class="block text-sm font-medium text-black dark:text-white">Thomas
-                        Anree</span>
-                    <span class="block text-xs font-medium">UX Designer</span>
+                    <span class="block text-sm font-medium text-black dark:text-white">{{auth()->user()->name}}</span>
+                    <span class="block text-xs font-medium">{{auth()->user()->job_title}}</span>
                 </span>
 
                 <span class="h-12 w-12 rounded-full">
-                    <img src="src/images/user/user-01.png" alt="User" />
+                    <img class="rounded-full" src="{{ $profileImage ? url('images/' . $profileImage) : url('noProfile.png') }}" />
                 </span>
 
                 <svg :class="dropdownOpen && 'rotate-180'" class="hidden fill-current sm:block"
@@ -103,7 +109,7 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
                 <ul
                     class="flex flex-col  gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
                     <li>
-                        <a href="profile.html"
+                        <a href="{{ route('profile.show') }}"
                             class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                             <svg class="fill-current" width="22" height="22"
                                 viewBox="0 0 22 22" fill="none"
@@ -118,13 +124,11 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
                             My Profile
                         </a>
                     </li>
-                   
+
                 </ul>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-        
-                    
                     <button
                     class="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                     <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22"
@@ -139,7 +143,7 @@ class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dar
                     {{ __('Log Out') }}
                 </button>
                 </form>
-               
+
             </div>
             <!-- Dropdown End -->
         </div>
